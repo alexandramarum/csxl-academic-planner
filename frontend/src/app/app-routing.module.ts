@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { ProfileEditorComponent } from './profile/profile-editor/profile-editor.component';
 import { AboutComponent } from './about/about.component';
 import { ProductivityComponent } from './productivity/productivity.component';
+import { ProductivityFormComponent } from './productivity/productivity-form/productivity-form.component';
 
 const routes: Routes = [
   HomeComponent.Route,
@@ -13,10 +14,7 @@ const routes: Routes = [
   ProfileEditorComponent.Route,
   GateComponent.Route,
   ProductivityComponent.Route,
-  {
-    path: 'productivity',
-    component: ProductivityComponent
-  },
+  ProductivityFormComponent.Route,
   {
     path: 'coworking',
     title: 'Cowork in the XL',

@@ -39,6 +39,7 @@ import { GateComponent } from './gate/gate.component';
 import { ProfileEditorComponent } from './profile/profile-editor/profile-editor.component';
 import { EventFilterPipe } from './event/event-filter/event-filter.pipe';
 import { ProductivityComponent } from './productivity/productivity.component';
+import { ProductivityFormComponent } from './productivity/productivity-form/productivity-form.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { ProductivityComponent } from './productivity/productivity.component';
     AboutComponent,
     GateComponent,
     ProfileEditorComponent,
-    ProductivityComponent
+    ProductivityComponent,
+    ProductivityFormComponent
   ],
   imports: [
     /* Angular */

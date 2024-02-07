@@ -1,0 +1,25 @@
+<p>productivity-form works!</p>
+
+<form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="name"> Name </label>
+    <input id="name" type="text" formControlName="name" />
+  </div>
+
+  <div>
+    <label for="description"> Description </label>
+    <input id="description" type="text" formControlName="description" />
+  </div>
+
+  <div>
+    <label for="workLength"> Work Length</label>
+    <input id="workLength" type="number" formControlName="workLength" />
+  </div>
+
+  <div>
+    <label for="breakLength"> Break Length </label>
+    <input id="breakLength" type="number" formControlName="breakLength" />
+  </div>
+
+  <button class="button" type="submit">Create</button>
+</form>
