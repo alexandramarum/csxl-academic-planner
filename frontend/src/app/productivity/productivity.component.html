@@ -1,2 +1,3 @@
 <p>productivity works!</p>
 <a [routerLink]="['edit/', timerCount]">Edit Page</a>
+<timer-widget *ngFor="let timer of timers" [timer]="timer"></timer-widget>

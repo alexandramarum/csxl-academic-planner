@@ -40,6 +40,7 @@ import { ProfileEditorComponent } from './profile/profile-editor/profile-editor.
 import { EventFilterPipe } from './event/event-filter/event-filter.pipe';
 import { ProductivityComponent } from './productivity/productivity.component';
 import { ProductivityFormComponent } from './productivity/productivity-form/productivity-form.component';
+import { TimerWidget } from './productivity/widgets/timer-widget.widget';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { ProductivityFormComponent } from './productivity/productivity-form/prod
     GateComponent,
     ProfileEditorComponent,
     ProductivityComponent,
-    ProductivityFormComponent
+    ProductivityFormComponent,
+    TimerWidget
   ],
   imports: [
     /* Angular */

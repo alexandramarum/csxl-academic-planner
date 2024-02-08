@@ -17,8 +17,8 @@ export class ProductivityService {
     breakLength: number
   ): void {
     let newTime = new ProductivityTimer(
-      workLength,
-      breakLength,
+      workLength * 60,
+      breakLength * 60,
       name,
       description
     );
