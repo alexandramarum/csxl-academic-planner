@@ -1,3 +1,7 @@
-<p>productivity works!</p>
-<a [routerLink]="['edit/', timerCount]">Edit Page</a>
-<timer-widget *ngFor="let timer of timers" [timer]="timer"></timer-widget>
+<button mat-stroked-button [routerLink]="['edit/', timerCount]">
+  Create New Timer
+</button>
+
+<ng-container *ngFor="let timer of timers; let i = index">
+  <timer-widget *ngIf="i !== 0" [timer]="timer"></timer-widget>
+</ng-container>

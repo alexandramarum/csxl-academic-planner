@@ -39,4 +39,8 @@ export class TimerWidget {
     this.startOrResume = 'start';
     this.timer.reset();
   }
+
+  public getIndex(timer: ProductivityTimer): number {
+    return ProductivityService.timers.indexOf(timer);
+  }
 }

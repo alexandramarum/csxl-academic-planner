@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProductivityService } from '../productivity.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+
 @Component({
   selector: 'app-productivity-form',
   templateUrl: './productivity-form.component.html',
@@ -24,20 +25,42 @@ export class ProductivityFormComponent {
   constructor(
     private productivityService: ProductivityService,
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   onSubmit(): void {
     // Create new timer object, assign values, increment timerCount, and add new object to list of timers.
     if (this.createForm.valid) {
-      ProductivityService.timerCount++;
-      this.productivityService.addTimer(
-        this.createForm.value.name || '',
-        this.createForm.value.description || '',
-        this.createForm.value.workLength || 1,
-        this.createForm.value.breakLength || 0
-      );
+      const name = this.createForm.value.name || '';
+      const description = this.createForm.value.description || '';
+      const workLength = this.createForm.value.workLength || 1;
+      const breakLength = this.createForm.value.breakLength || 0;
+
+      // Extract the ID from the current route
+      const id = this.route.snapshot.paramMap.get('id');
+
+      // Check if the ID matches the length of timers array
+      if (Number(id) < ProductivityService.timers.length) {
+        // If a timer already exists at the specified index, call changeTimer
+        this.productivityService.changeTimer(
+          Number(id),
+          name,
+          description,
+          workLength,
+          breakLength
+        );
+      } else {
+        // If the ID doesn't match, add a new timer
+        this.productivityService.addTimer(
+          name,
+          description,
+          workLength,
+          breakLength
+        );
+      }
       console.log(ProductivityService.timers);
+      console.log(ProductivityService.timerCount);
       // Route back to /productivity
       this.router.navigate(['/productivity']);
       window.alert('New pomodoro timer has been created!');

@@ -1,6 +1,6 @@
 <mat-card class="card" appearance="outlined">
-  <mat-label>{{ timer.name }}</mat-label>
-  <mat-label>{{ timer.description }}</mat-label>
+  <mat-label>Name: {{ timer.name }}</mat-label>
+  <mat-label>Desription: {{ timer.description }}</mat-label>
   <mat-label>{{ timer.countdown$ | async }} seconds</mat-label>
   <div>
     <button mat-stroked-button (click)="startTimer(timer)">
@@ -8,5 +8,8 @@
     </button>
     <button mat-stroked-button (click)="pauseTimer(timer)">pause</button>
     <button mat-stroked-button (click)="resetTimer(timer)">reset</button>
+    <button mat-stroked-button [routerLink]="['edit/', getIndex(timer)]">
+      edit
+    </button>
   </div>
 </mat-card>
