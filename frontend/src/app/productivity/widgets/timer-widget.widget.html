@@ -11,5 +11,6 @@
     <button mat-stroked-button [routerLink]="['edit/', getIndex(timer)]">
       edit
     </button>
+    <button mat-stroked-button (click)="removeTimer(timer)">delete</button>
   </div>
 </mat-card>

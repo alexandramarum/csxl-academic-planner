@@ -43,4 +43,12 @@ export class TimerWidget {
   public getIndex(timer: ProductivityTimer): number {
     return ProductivityService.timers.indexOf(timer);
   }
+
+  public removeTimer(timer: ProductivityTimer): void {
+    ProductivityService.timers.splice(
+      ProductivityService.timers.indexOf(timer),
+      1
+    );
+    ProductivityService.timerCount = ProductivityService.timers.length;
+  }
 }
