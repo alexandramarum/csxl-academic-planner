@@ -1,4 +1,32 @@
-.grey-button {
-    background-color: grey;
-  }
-  
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 420px;
+  height: 180px;
+  padding: 20px;
+  margin: 20px;
+}
+
+.mat-label {
+  display: block;
+}
+
+.seconds-label {
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+
+.name-label {
+  font-size: 1.5em;
+  font-style: bold;
+}
+
+.description-label {
+  font-style: italic;
+  color: #989898;
+  margin-top: 5px;
+}
+
+.buttons-container {
+  margin-top: 20px;
+}

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { ProductivityTimer } from './productivity-timer';
-import { PomodoroTimer } from '../pomodoro'; // Import the PomodoroTimer if needed
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +22,8 @@ export class ProductivityService {
     workLength: number,
     breakLength: number
   ): void {
+    /* Creates new timer object from input value and adds it to the 
+    list of timers in productivity service. Increments timerCount.*/
     let newTime = new ProductivityTimer(
       workLength * 60,
       breakLength * 60,
@@ -40,6 +41,8 @@ export class ProductivityService {
     workLength: number,
     breakLength: number
   ): void {
+    /* Creates new timer object from input value and adds it to the 
+    list of timers at given index in productivity service. */
     if (index >= 0 && index < ProductivityService.timers.length) {
       // Check if the index is valid
       const updatedTimer = new ProductivityTimer(

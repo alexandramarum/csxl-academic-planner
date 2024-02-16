@@ -1,8 +1,15 @@
 <mat-card class="card" appearance="outlined">
-  <mat-label>Name: {{ timer.name }}</mat-label>
-  <mat-label>Desription: {{ timer.description }}</mat-label>
-  <mat-label>{{ timer.countdown$ | async }} seconds</mat-label>
-  <div>
+  <span class="mat-label name-label"
+    >Timer {{ getIndex(timer) }} - {{ timer.name }}</span
+  >
+  <span class="mat-label description-label"
+    >Description: {{ timer.description }}</span
+  >
+  <span class="mat-label seconds-label">
+    {{ timerType(timer) }}
+    {{ formatTime(timer.countdown$ | async) || formatTime(timer.timerLength) }}
+  </span>
+  <div class="buttons-container">
     <button mat-stroked-button (click)="startTimer(timer)">
       {{ startOrResume }}
     </button>

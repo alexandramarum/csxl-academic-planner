@@ -30,19 +30,21 @@ export class ProductivityFormComponent {
   ) {}
 
   onSubmit(): void {
-    // Create new timer object, assign values, increment timerCount, and add new object to list of timers.
+    /* Validates form inputs, checks if to call changeTimer or addTimer,
+    navigates back to productivity and notifies about timer creation. */
+    // Validate form inputs.
     if (this.createForm.valid) {
       const name = this.createForm.value.name || '';
       const description = this.createForm.value.description || '';
       const workLength = this.createForm.value.workLength || 1;
       const breakLength = this.createForm.value.breakLength || 0;
 
-      // Extract the ID from the current route
+      // Extract id from the current route.
       const id = this.route.snapshot.paramMap.get('id');
 
-      // Check if the ID matches the length of timers array
+      // Check if the id matches the length of timers array.
       if (Number(id) < ProductivityService.timers.length) {
-        // If a timer already exists at the specified index, call changeTimer
+        // If a timer already exists at the specified index, call changeTimer.
         this.productivityService.changeTimer(
           Number(id),
           name,
@@ -51,7 +53,7 @@ export class ProductivityFormComponent {
           breakLength
         );
       } else {
-        // If the ID doesn't match, add a new timer
+        // If the id doesn't match, call addTimer.
         this.productivityService.addTimer(
           name,
           description,
@@ -59,10 +61,9 @@ export class ProductivityFormComponent {
           breakLength
         );
       }
-      console.log(ProductivityService.timers);
-      console.log(ProductivityService.timerCount);
       // Route back to /productivity
       this.router.navigate(['/productivity']);
+      // Notify
       window.alert('New pomodoro timer has been created!');
     }
   }
